@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Learning-material by CIS2016</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Learning-material</h1>
+        <p>Learning material of machine learning</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/CIS2016/Learning-Material" class="button fork"><strong>View On GitHub</strong></a>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+      
+<h2 id="toc_0">综述</h2>
+
+<h4 id="toc_1">1 <a href="https://arxiv.org/pdf/1611.07954v1.pdf">Emergent Logical Structure in Vector Representations of Neural Readers</a></h4>
+
+<p>针对最近提出的各种各样的attention based reader models,本文作者做了一个比较全面的总结和分析，并且通过数学分析和实验展示了模型之间的相关性。</p>
+
+<h2 id="toc_2">论文</h2>
+
+<h4 id="toc_3">1 <a href="https://arxiv.org/abs/1611.01436">Learning Recurrent Span Representations for Extractive Question Answering</a></h4>
+
+<p>【机器阅读】不同的阅读理解数据集产生答案的方式不同，有的是给定N个候选答案，有的是规定从原文中的entity中进行选择，有的是从原文中的任意token进行选择等等。本文所用的数据集是SQuAD，候选答案是原文中的任意字符串，难度较大，答案可能是一个词或者几个词都有可能。本文在前人研究的基础上提出了一种显式表示answer span的模型，取得了不错的效果。</p>
+
+<h4 id="toc_4">2 <a href="https://arxiv.org/abs/1611.01242">Answering Complicated Question Intents Expressed in Decomposed Question Sequences</a></h4>
+
+<p>【复杂问答】基于语义分析的问答系统最近流行于解决长、难问题，本文研究的内容是如何处理多个相互关联的简单问题？（即将复杂问题分解成多个相关简答问题）并给出了一个任务数据集。这个问题的一大难点在于相互关联的问题需要共指消解的工作。本文将单轮问答对话分解成多轮问题过程，上下文的处理非常重要。建议研究聊天机器人的童鞋来精读此文。</p>
+
+<h4 id="toc_5">3 <a href="https://arxiv.org/abs/1611.05118">The Amazing Mysteries of the Gutter: Drawing Inferences Between Panels in Comic Book Narratives</a></h4>
+
+<p>【问答系统】基于上下文的问答已经有很多数据集了，基于图像的问答也有一些数据集了。漫画是一类大家小时候都喜欢的读物，包含了丰富的图像和文本数据（对话）。本文给出了一个大型数据集，包括了丰富的图像和文本，规模在120万（120GB）左右。数据给出了几个任务，基于图像的问答任务，基于对话文本的问答任务和文本排序任务。对问答感兴趣，想找一些新数据来刷一刷榜的童鞋可以看过来。</p>
+
+<h4 id="toc_6">5 <a href="https://arxiv.org/abs/1610.08431">Broad Context Language Modeling as Reading Comprehension</a></h4>
+
+<p>不久前发布的LAMBADA dataset中，作者尝试的各种baseline models都给出了比较差的结果。在观察了LAMBADA dataset之后，我们认为可以利用Reading comprehension models来提升准确率，而不必使用传统的language model。这篇文章中，作者利用了简单的方法和模型将LAMBADA dataset的准确率从7.3%提高到45.4%，非常简单有效。</p>
+
+<h4 id="toc_7">6 <a href="http://www.cs.cmu.edu/%7Eepxing/papers/2016/Sachan_Xing_ACL16a.pdf">Easy Questions First? A Case Study on Curriculum Learning for Question Answering</a></h4>
+
+<h4 id="toc_8">8 <a href="https://arxiv.org/abs/1608.07905">Machine Comprehension Using Match-LSTM and Answer Pointer</a></h4>
+
+<p>本文提出的模型结合了match-LSTM(mLSTM)和Pointer Net(Ptr-Net)两种网络结构。</p>
+
+<h4 id="toc_9">9 <a href="https://arxiv.org/abs/1607.06275">Dataset and Neural Recurrent Sequence Labeling Model for Open-Domain Factoid Question Answering</a></h4>
+
+<p>作者给出了一个新的中文的QA数据集, 并且提出了一个非常有意思的baseline model.</p>
+
+<h2 id="toc_10">模型</h2>
+
+<h3 id="toc_11">1 Memory Networks</h3>
+
+<h4 id="toc_12">1.1 <a href="https://arxiv.org/abs/1410.3916">Memory Network</a></h4>
+
+<p>Memory Networks为解决长期记忆问题, 提出一类称为Memory Networks的模型框架, 基于该框架构造的模型可以拥有长期(大量)和易于读写的记忆。</p>
+
+<h4 id="toc_13">1.2 <a href="https://arxiv.org/abs/1503.08895">End-To-End Memory Networks</a></h4>
+
+<p>本文提出了一个可以端到端训练的Memory Networks，并且在训练阶段比原始的Memory Networks需要更少的监督信息。</p>
+
+<h4 id="toc_14">1.3 <a href="https://arxiv.org/abs/1506.07285">Ask Me Anything: Dynamic Memory Networks for Natural Language Processing</a></h4>
+
+<p>Question Answering: 给定一段Context，一个与此Context相关的Question，利用模型生成一个单词的Answer。</p>
+
+<h4 id="toc_15">1.4 <a href="https://arxiv.org/abs/1606.03126">Key-Value Memory Networks for Directly Reading Documents</a></h4>
+
+<p>鉴于知识库有知识稀疏、形式受限等问题，本文提出了一种可以通过直接读取文档来解决QA问题的新方法Key-Value Memory Networks。</p>
+
+<h4 id="toc_16">1.5 <a href="https://arxiv.org/abs/1511.02301">The Goldilocks Principle: Reading Children&#39;s Books with Explicit Memory Representations</a></h4>
+
+<p>本文对于语言模型（RNN/LSTM/Memory Network生成）到底能够多好或者在多大程度上表示The Children’s Book做了一项测试。测试结果表面Memor　Network上的效果最好。</p>
+
+<h4 id="toc_17">1.6 <a href="https://arxiv.org/abs/1610.08613">Can Active Memory Replace Attention?</a></h4>
+
+<p>Memory Networks和Attention是解决长距离依赖问题的两大方法，Attention模型在NLP的很多任务中都有更好的表现，本文对Memory Networks类模型的缺点进行了分析，并且提出了一种改进模型。改进版的memory模型有不错的表现，并且在长句子机器翻译任务中得到了验证。本文作者来自Google Brain。建议关注自然语言处理的童鞋，不管是关注什么任务，都应该精读一下本文。</p>
+
+<h3 id="toc_18">2 DeepMind Attentive Reader</h3>
+
+<h4 id="toc_19">2.1 <a href="https://arxiv.org/abs/1506.03340">Teaching Machines to Read and Comprehend</a></h4>
+
+<h3 id="toc_20">3 Danqi’s Stanford Reader</h3>
+
+<h3 id="toc_21">4 Attention Sum Reader</h3>
+
+<h3 id="toc_22">5 Gated Attention Sum Reader</h3>
+
+<h3 id="toc_23">6 Attention Over Attention Reader</h3>
+
+<h4 id="toc_24">6.1 <a href="https://arxiv.org/abs/1607.04423">Attention-over-Attention Neural Networks for Reading Comprehension</a></h4>
+
+<p>本文优化了attention机制，同时apply question-to-document and document-to-question attention，提升了已有模型在Cloze-Style Question Answering Task上的准确率。</p>
+
+<h2 id="toc_25">数据集</h2>
+
+<ul>
+<li><p><a href="https://rajpurkar.github.io/SQuAD-explorer/">SQuAD</a> </p>
+
+<p><a href="https://arxiv.org/abs/1606.05250">SQuAD: 100,000+ Questions for Machine Comprehension of Text</a></p></li>
+<li><p><a href="http://clic.cimec.unitn.it/lambada/">LAMBADA</a></p>
+
+<p><a href="https://arxiv.org/abs/1606.06031">The LAMBADA dataset: Word prediction requiring a broad discourse context</a></p></li>
+<li><p><a href="https://tticnlp.github.io/who_did_what/">Who do What</a></p>
+
+<p><a href="http://aclweb.org/anthology/D/D16/D16-1241.pdf">Who did What: A Large-Scale Person-Centered Cloze Dataset</a></p></li>
+<li><p><a href="">BookTest</a> </p>
+
+<p><a href="https://arxiv.org/abs/1610.00956">Embracing data abundance: BookTest Dataset for Reading Comprehension</a>
+本文发布了一个新的机器阅读理解数据集BookTest，该数据集最大的亮点是规模大，是Facebook发布的Children’s Book Test的60倍之大。</p></li>
+</ul>  
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/CIS2016">CIS2016</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
